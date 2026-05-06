@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -14,19 +15,21 @@ const ResisterPage = () => {
   const onSubmit = async (data) => {
     console.log(data);
     const { name, email, password, photo } = data;
+    console.log(name, photo);
 
-    const { data:res, error } = await authClient.signUp.email({
+    const { data: res, error } = await authClient.signUp.email({
       name: name,
       email: email,
       password: password,
-      photo: photo,
+      image: photo,
     });
     console.log(res, error);
-    if(error){
-      alert(error.message)
+    if (error) {
+      alert(error.message);
     }
-    if(res){
-      alert("SignUp success")
+    if (res) {
+      alert("SignUp success");
+      redirect("/")
     }
   };
   return (
@@ -64,7 +67,7 @@ const ResisterPage = () => {
               type="text"
               className="input w-full"
               placeholder="Enter Your Photo URL"
-              {...register("photo", { required: "photo field is required" })}
+              {...register("photo", { required: "Photo field is required" })}
             />
           </fieldset>
           <fieldset className="fieldset">
