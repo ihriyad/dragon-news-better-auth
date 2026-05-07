@@ -3,7 +3,7 @@ import React from "react";
 
 const LeftSide = ({ category, activeId }) => {
   return (
-    <div className="list-none text-gray-400 space-y-3">
+    <div className="list-none text-gray-400 space-y-3 sticky z-10 top-0">
       {category.map((item) => (
         <li
           key={item.category_id}

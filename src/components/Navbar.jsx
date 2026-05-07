@@ -26,7 +26,7 @@ const Navbar = () => {
           <NavLink href={"/contact"}>Contact</NavLink>
         </li>
       </ul>
-      <div className="flex justify-center items-center gap-3">
+      <div className="flex justify-center items-center gap-3 ">
         {isPending?<>Loading...</>:user ? (
           <>
             <h2>Welcome,{user.name}</h2>

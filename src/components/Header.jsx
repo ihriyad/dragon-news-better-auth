@@ -10,6 +10,7 @@ const Header = () => {
     text-center
     space-y-2.5
     mt-6
+    
     "
     >
       <Image
